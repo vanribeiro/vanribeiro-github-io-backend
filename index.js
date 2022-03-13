@@ -1,0 +1,16 @@
+import express from 'express';
+import dotenv from 'dotenv';
+
+import { router as myInstagram } from './api/my-instagram-media.js';
+import { router as studyingAtAlura } from './api/coursing-in-alura.js';
+
+const app = express();
+const port = 3000;
+
+dotenv.config();
+
+app.use('/api/meu-instagram', myInstagram);
+
+app.use('/api/estudando-na-alura', studyingAtAlura);
+
+app.listen(port);
