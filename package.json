@@ -1,0 +1,14 @@
+{
+  "name": "vanribeiro-github-io-backend",
+  "version": "1.0.0",
+  "description": "back-end do site vanribeiro.github.io",
+  "main": "app.js",
+  "author": "Van Ribeiro",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "node-fetch": "^3.2.3"
+  },
+  "type": "module"
+}
