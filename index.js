@@ -5,7 +5,7 @@ import { router as myInstagram } from './api/my-instagram-media.js';
 import { router as studyingAtAlura } from './api/coursing-in-alura.js';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 dotenv.config();
 
@@ -13,4 +13,4 @@ app.use('/api/meu-instagram', myInstagram);
 
 app.use('/api/estudando-na-alura', studyingAtAlura);
 
-app.listen(port);
+app.listen(port, () => console.log(`Running at http://localhost:${port}/`));
