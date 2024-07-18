@@ -2,16 +2,12 @@
   "name": "vanribeiro-github-io-backend",
   "version": "1.0.0",
   "description": "back-end do site vanribeiro.github.io",
-  "main": "index.js",
   "author": "Van Ribeiro",
   "license": "ISC",
-  "scripts": {
-    "start": "node index.js"
-  },
   "dependencies": {
     "dotenv": "^16.0.0",
-    "express": "^4.17.3",
-    "node-fetch": "^3.2.3"
-  },
-  "type": "module"
+    "@types/node": "^20.14.11",
+    "@vercel/node": "^2.9.6",
+    "typescript": "^4.7.3"
+  }
 }
