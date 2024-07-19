@@ -1,4 +1,4 @@
-import { server } from "../tests/services/node";
+import { server } from "../tests/mocks/services/node";
 import { fetchData } from "./fetch";
 import articlesSummary from "../tests/mocks/articles-summary";
 import { IArticles } from "../interfaces/dev-to-api/articles";

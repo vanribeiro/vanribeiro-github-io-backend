@@ -1,4 +1,4 @@
-import dateConvert from "./date-convert";
+import dateConvert from "../../utils/date-convert";
 
 describe('dateConvert function', () => {
 

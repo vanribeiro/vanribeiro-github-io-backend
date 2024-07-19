@@ -1,5 +1,5 @@
 import { http, HttpResponse, HttpHandler } from 'msw';
-import articlesSummary from '../mocks/articles-summary';
+import articlesSummary from '../articles-summary';
 
 const handlers: Array<HttpHandler> = [
   http.get('https://example.com/api', () => {
