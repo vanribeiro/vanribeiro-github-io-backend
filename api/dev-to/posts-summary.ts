@@ -3,7 +3,8 @@ import dotenv from 'dotenv';
 
 import { fetchData } from '../../services/fetch';
 import { responseData } from '../../services/commons';
-import { IArticles } from '../../interfaces/dev-to-api/articles';
+import { IArticle, IArticles } from '../../interfaces/dev-to-api/articles';
+import { mapArticle } from '../../services/helpers/mappers';
 
 dotenv.config();
 
@@ -33,7 +34,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             return [];
         }
 
-        return articles;
+        return articles.map((article: IArticle) => mapArticle(article));
     });
 
 
