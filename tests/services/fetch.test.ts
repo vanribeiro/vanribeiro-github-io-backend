@@ -1,8 +1,8 @@
-import { server } from "../tests/mocks/services/node";
-import { fetchData } from "./fetch";
-import articlesSummary from "../tests/mocks/articles-summary";
-import { IArticles } from "../interfaces/dev-to-api/articles";
-import { IResponseData } from "../interfaces/response";
+import { server } from "../../tests/mocks/services/node";
+import { fetchData } from "./../../services/fetch";
+import { IArticles } from "../../interfaces/dev-to-api/articles";
+import { IResponseData } from "../../interfaces/response";
+import articlesSummary from "../mocks/articles-summary";
 
 beforeEach(() => {
     server.listen();
@@ -18,10 +18,16 @@ afterAll(() => {
 
 describe("fetchData function", () => {
 
-    it("fetchData should return valid data", async () => {
+    it("should return valid data", async () => {
         const actualOutput: IArticles = await fetchData({ url: `https://example.com/api` }).then((data) => data);
         const responseData: IResponseData = articlesSummary;
         expect(actualOutput.data.title).toEqual(responseData.data.title);   
     });
+
+    it.todo("fetchData should return 200 when token is set");
+
+    it.todo("fetchData should return 401 when token is not set");
+
+    it.todo("fetchData should return 200 when initOptions is set");
 
 });
