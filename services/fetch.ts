@@ -5,7 +5,7 @@ async function fetchData ({
     token,
     initOptions 
 }: IRequestData): Promise<any> {
-    const source = token? `${url}${token}` : url;
+    const source = token ? `${url}${token}` : url;
     const response = await fetch(source, initOptions ? initOptions : {});
     const result = await response.json();
     return result;
