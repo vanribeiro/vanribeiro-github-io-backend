@@ -5,6 +5,7 @@ import dateConvert from "../../utils/date-convert";
 function mapArticle(articles: Array<IArticle>): Array<IArticle> {
     return articles?.map((article: IArticle) =>({
         ...article,
+        published_timestamp: dateConvert(article.published_timestamp),
         published_at: dateConvert(article.published_at),
         user: {
             name: article.user?.name || '',
@@ -18,10 +19,10 @@ function mapArticleSummary(articles: Array<IArticle>): Array<IArticle> {
         title: article.title,
         description: article.description,
         published: article.published,
-        published_at: dateConvert(article.published_at),
         url: article.url,
         comments_count: article.comments_count,
         public_reactions_count: article.public_reactions_count,
+        published_at: dateConvert(article.published_at),
         published_timestamp: dateConvert(article.published_timestamp),
         positive_reactions_count: article.positive_reactions_count,
         cover_image: article.cover_image,
