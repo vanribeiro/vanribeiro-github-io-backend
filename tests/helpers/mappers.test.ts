@@ -1,7 +1,7 @@
 import { mapArticle } from "../../services/helpers/mappers";
 import { IArticle } from "../../interfaces/dev-to-api/articles";
 import { mapGuides, mapCourseProgress } from "../../services/helpers/mappers";
-import { ICourseProgress, IGuide } from "../../interfaces/alura-dashboard";
+import { ICourseProgress, IGuide } from "../../interfaces/alura-api/dashboard";
 import articlesList from "../mocks/helpers/articles.mock.json";
 import articlesListResponse from "../mocks/helpers/articles.res.mock.json";
 import guideList from "../mocks/helpers/guides.mock.json";
