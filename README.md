@@ -42,5 +42,3 @@ Os comandos configurados são:
 ## Posts que me ajudaram nesta implementação
 
 - [Como "esconder" a chave de uma API antes de colocar o projeto no GitHub?](https://pt.stackoverflow.com/questions/477756/como-esconder-a-chave-de-uma-api-antes-de-colocar-o-projeto-no-github)
-- [Deploy Express.js app to Vercel ](https://dev.to/hte305/deploy-express-js-app-to-vercel-38jb)
-- [Using Express.js with Vercel - Learn how to use Express.js in a Serverless environment.](https://vercel.com/guides/using-express-with-vercel)
