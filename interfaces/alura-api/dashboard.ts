@@ -1,10 +1,10 @@
-import { Kind } from "../types/alura-dashboard";
+import { Kind } from "../../types/alura-dashboard";
 
-interface ICourseProgresses {
+interface ICourseProgress {
     slug: string;
     finished: boolean;
     name: string;
-    lastAccessTime: number;
+    lastAccessTime: number | string;
     id: number;
     progress: number;
     readyToFinish: boolean;
@@ -15,7 +15,7 @@ interface IGuide {
     code: string;
     name: string;
     url: string;
-    lastAccessTime: number;
+    lastAccessTime: number | string;
     kind: Kind;
     totalCourses: number;
     finishedCourses: number;
@@ -26,12 +26,12 @@ interface IGuide {
 }
 
 interface IAluraDashboard {
-    courseProgresses: Array<ICourseProgresses>;
+    courseProgresses: Array<ICourseProgress>;
     guides: Array<IGuide>;
 }
 
 export {
     IAluraDashboard,
-    ICourseProgresses,
+    ICourseProgress,
     IGuide,
 }

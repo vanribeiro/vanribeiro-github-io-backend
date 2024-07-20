@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import dotenv from 'dotenv';
 
 import { fetchData } from '../../services/fetch';
-import { IAluraDashboard, ICourseProgress, IGuide } from '../../interfaces/alura-dashboard';
+import { IAluraDashboard, ICourseProgress, IGuide } from '../../interfaces/alura-api/dashboard';
 import { responseData } from '../../services/commons';
 import { mapCourseProgress, mapGuides } from '../../services/helpers/mappers';
 
