@@ -1,4 +1,4 @@
-const articlesSummary = {
+{
     "status": 200,
     "data": [
         {
@@ -92,5 +92,3 @@ const articlesSummary = {
     ],
     "errors": []
 }
-
-export default articlesSummary;

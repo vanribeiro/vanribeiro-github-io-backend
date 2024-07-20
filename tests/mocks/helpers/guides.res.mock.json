@@ -1,0 +1,18 @@
+{
+    "guides": [
+        {
+            "id": 123,
+            "code": "ABC",
+            "name": "Test Guide",
+            "url": "https://example.com/guide",
+            "lastAccessTime": "31/12/2021",
+            "kind": "DEGREE",
+            "totalCourses": 5,
+            "finishedCourses": 3,
+            "totalSteps": 10,
+            "finishedSteps": 7,
+            "color": "#FFFFFF",
+            "author": "John Doe"
+        }
+    ]
+}

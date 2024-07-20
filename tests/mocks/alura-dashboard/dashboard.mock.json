@@ -1,0 +1,43 @@
+{
+    "courseProgresses": [
+        {
+            "id": 2983,
+            "name": "React: avançando em testes e2e com Cypress",
+            "slug": "react-avancando-testes-e2e-cypress",
+            "progress": 5,
+            "readyToFinish": false,
+            "finished": false,
+            "lastAccessTime": "17/07/2024"
+        }
+    ],
+    "guides" : [
+        {
+            "id": 774105,
+            "code": "Vanessa Cristiane Ribeiro",
+            "name": "Arte",
+            "url": "/arte-vanribeiro-dev-1716688758859-p774105",
+            "lastAccessTime": "25/05/2024",
+            "kind": "USER_GUIDE",
+            "totalCourses": 26,
+            "finishedCourses": 0,
+            "totalSteps": 3,
+            "finishedSteps": 0,
+            "color": "#B68AF3",
+            "author": "Vanessa Cristiane Ribeiro"
+        },
+        {
+            "id": 546209,
+            "code": "",
+            "name": "Melhore sua aplicação React com testes automatizados",
+            "url": "/formacao-react-testes-automatizados",
+            "lastAccessTime": "17/07/2024",
+            "kind": "DEGREE",
+            "totalCourses": 6,
+            "finishedCourses": 4,
+            "totalSteps": 14,
+            "finishedSteps": 7,
+            "color": "#83cffa",
+            "author": ""
+        }
+    ]
+}
