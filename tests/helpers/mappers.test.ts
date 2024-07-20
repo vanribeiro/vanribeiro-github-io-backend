@@ -1,89 +1,50 @@
 import { mapArticle } from "../../services/helpers/mappers";
 import { IArticle } from "../../interfaces/dev-to-api/articles";
+import { mapGuides, mapCourseProgress } from "../../services/helpers/mappers";
+import { ICourseProgress, IGuide } from "../../interfaces/alura-dashboard";
+import articlesList from "../mocks/helpers/articles.mock.json";
+import articlesListResponse from "../mocks/helpers/articles.res.mock.json";
+import guideList from "../mocks/helpers/guides.mock.json";
+import guideListResponse from "../mocks/helpers/guides.res.mock.json";
+import courseProgressesList from "../mocks/helpers/course-progresses.mock.json";
+import courseProgressListResponse from "../mocks/helpers/course-progresses.res.mock.json";
 
-describe("mapArticle", () => {
+describe("mapArticle function", () => {
+
+  const articles: Array<IArticle> = articlesList?.articles as Array<IArticle>;
+
   it("should map the article object correctly", () => {
-    const article: IArticle = {
-      title: "Test Article",
-      url: "https://example.com/article",
-      description: "This is a test article",
-      comments_count: 10,
-      published_at: "2022-01-01T00:00:00Z",
-      published: true,
-      positive_reactions_count: 100,
-      public_reactions_count: 200,
-      reading_time_minutes: 5,
-      cover_image: "https://example.com/cover-image.jpg",
-      tag_list: ["tag1", "tag2"],
-      tags: "tag1,tag2",
-      user: {
-        name: "John Doe",
-        username: "johndoe",
-      },
-    };
 
-    const mappedArticle = mapArticle(article);
+    const mappedArticles = mapArticle(articles);
+    expect(mappedArticles).toEqual(articlesListResponse?.articles);
 
-    expect(mappedArticle).toEqual({
-      title: "Test Article",
-      url: "https://example.com/article",
-      description: "This is a test article",
-      comments_count: 10,
-      published_at: "31/12/2021",
-      published: true,
-      positive_reactions_count: 100,
-      public_reactions_count: 200,
-      reading_time_minutes: 5,
-      cover_image: "https://example.com/cover-image.jpg",
-      tag_list: ["tag1", "tag2"],
-      tags: "tag1,tag2",
-      user: {
-        name: "John Doe",
-        username: "johndoe",
-      },
-    });
   });
 
   it("should return an empty string when name e username is empty", () => {
-    const article: IArticle = {
-      title: "Test Article",
-      url: "https://example.com/article",
-      description: "This is a test article",
-      comments_count: 10,
-      published_at: "2022-01-01T00:00:00Z",
-      published: true,
-      positive_reactions_count: 100,
-      public_reactions_count: 200,
-      reading_time_minutes: 5,
-      cover_image: "https://example.com/cover-image.jpg",
-      tag_list: ["tag1", "tag2"],
-      tags: "tag1,tag2",
-      user: {
-        name: "",
-        username: "",
-      },
-    };
 
-    const mappedArticle = mapArticle(article);
+    const mappedArticle = mapArticle(articles);
+    expect(mappedArticle[1]).toEqual(articlesListResponse?.articles[1]);
 
-    expect(mappedArticle).toEqual({
-      title: "Test Article",
-      url: "https://example.com/article",
-      description: "This is a test article",
-      comments_count: 10,
-      published_at: "31/12/2021",
-      published: true,
-      positive_reactions_count: 100,
-      public_reactions_count: 200,
-      reading_time_minutes: 5,
-      cover_image: "https://example.com/cover-image.jpg",
-      tag_list: ["tag1", "tag2"],
-      tags: "tag1,tag2",
-      user: {
-        name: "",
-        username: "",
-      },
-    });
   });
 
+});
+
+describe("mapGuides function", () => {
+
+  it("should map guide object correctly", () => {
+    const guides: Array<IGuide> = guideList?.guides as Array<IGuide>;
+    const mappedGuide = mapGuides(guides);
+    expect(mappedGuide).toEqual(guideListResponse?.guides);
+  });
+
+});
+
+describe("mapCourseProgress function", () => {
+  it("should map the course progress object correctly", () => {
+
+    const courseProgresses: Array<ICourseProgress> = courseProgressesList?.courseProgresses;
+    const mappedCourseProgress = mapCourseProgress(courseProgresses);
+    expect(mappedCourseProgress).toEqual(courseProgressListResponse?.courseProgresses);
+
+  });
 });
