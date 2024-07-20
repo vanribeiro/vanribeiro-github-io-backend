@@ -1,42 +1,30 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import dotenv from 'dotenv';
 
 import { fetchData } from '../../services/fetch';
 import { responseData } from '../../services/commons';
-import { IArticle, IArticles } from '../../interfaces/dev-to-api/articles';
-import { mapArticle } from '../../services/helpers/mappers';
-
-dotenv.config();
+import { IArticle } from '../../interfaces/dev-to-api/articles';
+import { mapArticleSummary } from '../../services/helpers/mappers';
+import { ARTICLES_ENDPOINT, initOptions, URL_BASE_DEV_TO } from '../../services/dev-to/init-options';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     
-    const { pagina, por_pagina } = req.query;
+    const { page, per_page } = req.query;
 
-    const page = parseInt(pagina as string, 5) || 1;
-    const perPage = parseInt(por_pagina as string, 5) || 5;
+    const pg: number = parseInt(page as string, 5) || 1;
+    const pPg: number = parseInt(per_page as string, 5) || 5;
+    const queries: string = `?page=${pg}&per_page=${pPg}`;
 
-    const url = `https://dev.to/api/articles/me?page=${page}&per_page=${perPage}`;
-    const token = process.env.DEV_TO_TOKEN_API;
+    const url: string = `${URL_BASE_DEV_TO}${ARTICLES_ENDPOINT.PUBLISHED}${queries}`;
 
-    const initOptions: RequestInit = {
-        method: 'GET',
-        headers: {
-            'api-key': token as string,
-            'Content-type': 'application/vnd.forem.api-v1+json',
-            'Accept': 'application/vnd.forem.api-v1+json',
-        },
-    }
-
-    const result = await fetchData({ url, initOptions }).then((articles: IArticles) => {
+    const result: Array<IArticle> = await fetchData({ url, initOptions }).then((articles: Array<IArticle>) => {
 
         if(articles.length === 0) {
             responseData.errors.push('Nenhum artigo encontrado');
             return [];
         }
-
-        return articles.map((article: IArticle) => mapArticle(article));
+        
+        return mapArticleSummary(articles);
     });
-
 
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Methods', 'GET');
