@@ -1,4 +1,4 @@
-import { ICourseProgress, IGuide } from "../../interfaces/alura-dashboard";
+import { ICourseProgress, IGuide } from "../../interfaces/alura-api/dashboard";
 import { IArticle } from "../../interfaces/dev-to-api/articles";
 import dateConvert from "../../utils/date-convert";
 
