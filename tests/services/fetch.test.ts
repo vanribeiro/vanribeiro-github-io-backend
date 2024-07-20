@@ -1,8 +1,8 @@
-import { server } from "../../tests/mocks/services/node";
+import { server } from "../mocks/msw-server/node";
 import { fetchData } from "./../../services/fetch";
 import { IArticles } from "../../interfaces/dev-to-api/articles";
 import { IResponseData } from "../../interfaces/response";
-import articlesSummary from "../mocks/articles-summary";
+import articlesSummary from "../mocks/dev-to/articles.summary.mock.json";
 
 beforeEach(() => {
     server.listen();
