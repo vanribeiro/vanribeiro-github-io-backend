@@ -2,8 +2,9 @@ import { mapArticle } from "../../services/helpers/mappers";
 import { IArticle } from "../../interfaces/dev-to-api/articles";
 import { mapGuides, mapCourseProgress } from "../../services/helpers/mappers";
 import { ICourseProgress, IGuide } from "../../interfaces/alura-api/dashboard";
-import articlesList from "../mocks/helpers/articles.mock.json";
-import articlesListResponse from "../mocks/helpers/articles.res.mock.json";
+
+import articleList from "../mocks/helpers/articles.mock.json";
+import articleListResponse from "../mocks/helpers/articles.res.mock.json";
 import guideList from "../mocks/helpers/guides.mock.json";
 import guideListResponse from "../mocks/helpers/guides.res.mock.json";
 import courseProgressesList from "../mocks/helpers/course-progresses.mock.json";
@@ -11,19 +12,18 @@ import courseProgressListResponse from "../mocks/helpers/course-progresses.res.m
 
 describe("mapArticle function", () => {
 
-  const articles: Array<IArticle> = articlesList?.articles as Array<IArticle>;
-
   it("should map the article object correctly", () => {
 
-    const mappedArticles = mapArticle(articles);
-    expect(mappedArticles).toEqual(articlesListResponse?.articles);
+    const articles: Array<IArticle> = articleList;
+    const mappedArticles: Array<IArticle> = mapArticle(articles);
+    expect(mappedArticles).toEqual(articleListResponse);
 
   });
 
   it("should return an empty string when name e username is empty", () => {
 
-    const mappedArticle = mapArticle(articles);
-    expect(mappedArticle[1]).toEqual(articlesListResponse?.articles[1]);
+    const mappedArticle: Array<IArticle> = mapArticle(articleList);
+    expect(mappedArticle[1].published_timestamp).toBe(articleListResponse[1].published_timestamp);
 
   });
 

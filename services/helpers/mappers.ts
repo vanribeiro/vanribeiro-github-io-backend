@@ -13,6 +13,28 @@ function mapArticle(articles: Array<IArticle>): Array<IArticle> {
     }));
 }
 
+function mapArticleSummary(articles: Array<IArticle>): Array<IArticle> {
+    return articles?.map((article: IArticle) =>({
+        title: article.title,
+        description: article.description,
+        published: article.published,
+        published_at: dateConvert(article.published_at),
+        url: article.url,
+        comments_count: article.comments_count,
+        public_reactions_count: article.public_reactions_count,
+        published_timestamp: dateConvert(article.published_timestamp),
+        positive_reactions_count: article.positive_reactions_count,
+        cover_image: article.cover_image,
+        tags: article.tags,
+        tag_list: article.tag_list,
+        reading_time_minutes: article.reading_time_minutes,
+        user: {
+            name: article.user?.name || '',
+            username: article.user?.username || '',    
+       },
+    }));
+}
+
 function mapGuides(guides: Array<IGuide>): Array<IGuide> {
     return guides?.map((guide: IGuide) => 
         ({
@@ -33,6 +55,7 @@ function mapCourseProgress(courseProgresses: Array<ICourseProgress>): Array<ICou
 
 export {
     mapArticle,
+    mapArticleSummary,
     mapGuides,
     mapCourseProgress
 };
