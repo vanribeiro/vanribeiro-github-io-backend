@@ -29,7 +29,7 @@ const url: string =`https://www.alura.com.br/api/dashboard/${process.env.ALURA_T
 
 describe('/api/alura-dashboard', () => {
 
-    it('should return with json and status code 200', async () => {
+    it('should return a json', async () => {
 
         serverAlura.use(
             http.get(
