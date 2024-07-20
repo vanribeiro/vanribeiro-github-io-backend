@@ -6,6 +6,11 @@ type TypeOfPublishing =
                         "user_follower" | 
                         "comment";
 
+type ArticlesEndpoint = {
+    PUBLISHED: string;
+}
+
 export {
-    TypeOfPublishing
+    TypeOfPublishing,
+    ArticlesEndpoint,
 }

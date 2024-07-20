@@ -20,8 +20,12 @@ describe("fetchData function", () => {
 
     it("should return valid data", async () => {
         const actualOutput: IArticles = await fetchData({ url: `https://example.com/api` }).then((data) => data);
-        const responseData: IResponseData = articlesSummary;
-        expect(actualOutput.data.title).toEqual(responseData.data.title);   
+        const data: IResponseData = {
+            status: 200,
+            data: articlesSummary,
+            errors: [],
+        };
+        expect(actualOutput.title).toEqual(data.data.title);   
     });
 
     it.todo("fetchData should return 200 when token is set");
