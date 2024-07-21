@@ -5,7 +5,7 @@ import posts from '../../../api/dev-to/posts'
 import { serverDevTo } from '../../mocks/msw-server/node';
 import { IResponseData } from '../../../interfaces/response';
 import { reponseInit } from './utils';
-import { ARTICLES_ENDPOINT, URL_BASE_DEV_TO } from '../../../services/dev-to/init-options';
+import devToService from '../../../services/dev-to';
 
 beforeEach(() => {
     serverDevTo.listen();
@@ -18,6 +18,8 @@ afterEach(() => {
 afterAll(() => {
     serverDevTo.close();
 });
+
+const { URL_BASE, endpoint } = devToService();
 
 describe('/api/dev-to/posts', () => {
 
@@ -49,7 +51,7 @@ describe('/api/dev-to/posts', () => {
 
         serverDevTo.use(
             http.get(
-                `${URL_BASE_DEV_TO}${ARTICLES_ENDPOINT.PUBLISHED}`,
+                `${URL_BASE}${endpoint.articles.PUBLISHED}`,
                 () => {
                     return HttpResponse.json([], reponseInit);
                 },

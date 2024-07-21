@@ -1,5 +1,4 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import dotenv from 'dotenv';
 import aluraDashboard from '../../../api/alura/dashboard';
 import { serverAlura } from '../../mocks/msw-server/node';
 import { http, HttpResponse, JsonBodyType } from 'msw';
@@ -10,8 +9,8 @@ import guides from '../../mocks/alura-dashboard/guides.mock.json';
 import dashboardEmpty from '../../mocks/alura-dashboard/dashboard-empty.mock.json';
 import dashboardNoProgress from '../../mocks/alura-dashboard/dashboard-no-progress.mock.json';
 import dashboardNoGuide from '../../mocks/alura-dashboard/dashboard-no-guides.mock.json';
+import aluraDashboardService from '../../../services/alura';
 
-dotenv.config();
 
 beforeEach(() => {
     serverAlura.listen();
@@ -25,7 +24,9 @@ afterAll(() => {
     serverAlura.close();
 });
 
-const url: string =`https://www.alura.com.br/api/dashboard/${process.env.ALURA_TOKEN_API}`;
+const { URL_BASE, TOKEN_API } = aluraDashboardService();
+
+const url: string =`${URL_BASE}${TOKEN_API}`;
 
 describe('/api/alura-dashboard', () => {
 

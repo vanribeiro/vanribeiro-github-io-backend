@@ -1,4 +1,4 @@
-import { mapArticle, mapArticleSummary } from "../../services/helpers/mappers";
+import { mapArticle, mapArticleSummary, mapStatusCode } from "../../services/helpers/mappers";
 import { IArticle } from "../../interfaces/dev-to-api/articles";
 import { mapGuides, mapCourseProgress } from "../../services/helpers/mappers";
 import { ICourseProgress, IGuide } from "../../interfaces/alura-api/dashboard";
@@ -10,10 +10,11 @@ import courseProgressesList from "../mocks/helpers/course-progresses.mock.json";
 import courseProgressListResponse from "../mocks/helpers/course-progresses.res.mock.json";
 
 describe("mapArticle function", () => {
+  
+  const articles: Array<IArticle> = articleList;
 
   it("should map the article object correctly", () => {
-
-    const articles: Array<IArticle> = articleList;
+  
     const mappedArticles: Array<IArticle> = mapArticle(articles);
     expect(mappedArticles).toEqual(articleListResponse);
 
@@ -66,5 +67,21 @@ describe("mapCourseProgress function", () => {
     const mappedCourseProgress = mapCourseProgress(courseProgresses);
     expect(mappedCourseProgress).toEqual(courseProgressListResponse?.courseProgresses);
 
+  });
+});
+
+describe("mapStatusCode function", () => {
+  it("should return the status message for a valid status code", () => {
+    const statusCode = 200;
+    const statusMessage = "OK";
+    const mappedStatusMessage = mapStatusCode(statusCode, statusMessage);
+    expect(mappedStatusMessage).toBe("OK");
+  });
+
+  it("should return the statusMessage arg when the status code is not in statusCodeMessage objetc", () => {
+    const statusCode = 1000;
+    const statusMessage = "Not Found 1000";
+    const mappedStatusMessage = mapStatusCode(statusCode, statusMessage);
+    expect(mappedStatusMessage).toBe(statusMessage);
   });
 });

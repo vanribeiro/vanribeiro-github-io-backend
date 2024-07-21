@@ -6,7 +6,7 @@ import postSummary from '../../../api/dev-to/posts-summary'
 import { serverDevTo } from '../../mocks/msw-server/node';
 import { IResponseData } from '../../../interfaces/response';
 import { reponseInit } from './utils';
-import { ARTICLES_ENDPOINT, URL_BASE_DEV_TO } from '../../../services/dev-to/init-options';
+import devToService from '../../../services/dev-to';
 
 beforeEach(() => {
     serverDevTo.listen();
@@ -20,13 +20,15 @@ afterAll(() => {
     serverDevTo.close();
 });
 
+const { URL_BASE, endpoint } = devToService();
+
 describe('/api/dev-to/posts-summary', () => {
 
     it('should return a json', async () => {
 
         serverDevTo.use(
             http.get(
-                `${URL_BASE_DEV_TO}${ARTICLES_ENDPOINT.PUBLISHED}`,
+                `${URL_BASE}${endpoint.articles.PUBLISHED}`,
                 () => {
                     return HttpResponse.json(articlesSummary, reponseInit);
                 },
@@ -60,7 +62,7 @@ describe('/api/dev-to/posts-summary', () => {
 
         serverDevTo.use(
             http.get(
-                `${URL_BASE_DEV_TO}${ARTICLES_ENDPOINT.PUBLISHED}`,
+                `${URL_BASE}${endpoint.articles.PUBLISHED}`,
                 () => {
                     return HttpResponse.json([], reponseInit);
                 },
