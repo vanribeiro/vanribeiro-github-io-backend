@@ -25,9 +25,4 @@ interface IArticle {
     user?:  IUser;
 }
 
-interface IArticles{
-    [x: string]: any;
-    articles: Array<IArticle>;
-}
-
-export { IArticle, IArticles };
+export { IArticle };

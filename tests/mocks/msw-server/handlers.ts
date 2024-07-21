@@ -2,7 +2,9 @@ import { http, HttpResponse, HttpHandler } from 'msw';
 import articlesDevToSummary from '../dev-to/articles.summary.mock.json';
 import articlesDevTo from '../dev-to/articles.mock.json';
 import aluraDashboard from '../alura-dashboard/dashboard.mock.json'
-import { ARTICLES_ENDPOINT, URL_BASE_DEV_TO } from '../../../services/dev-to/init-options';
+import devToService from '../../../services/dev-to';
+
+const { URL_BASE, endpoint } = devToService();
 
 const urlAlura: string = `https://www.alura.com.br/api/dashboard/${process.env.ALURA_TOKEN_API}`;
 
@@ -19,7 +21,7 @@ const aluraHandlers: Array<HttpHandler> = [
 ];
 
 const devToHandlers: Array<HttpHandler> = [
-  http.get(`${URL_BASE_DEV_TO}${ARTICLES_ENDPOINT.PUBLISHED}`, () => {
+  http.get(`${URL_BASE}${endpoint.articles.PUBLISHED}`, () => {
     return HttpResponse.json(articlesDevTo, { status: 200 });
   }),
 ];

@@ -5,17 +5,17 @@ import { fetchData } from '../../services/fetch';
 import { IAluraDashboard, ICourseProgress, IGuide } from '../../interfaces/alura-api/dashboard';
 import { responseData } from '../../services/commons';
 import { mapCourseProgress, mapGuides } from '../../services/helpers/mappers';
+import aluraDashboardService from '../../services/alura';
 
 dotenv.config();
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-    const { collection } = req.query;
 
-    const token: string | undefined = process.env.ALURA_TOKEN_API;
-    const url: string = "https://www.alura.com.br/api/dashboard/";
+    const { collection } = req.query;
+    const { URL_BASE, TOKEN_API, initOptions } = aluraDashboardService();
 
     const result: IAluraDashboard | Array<ICourseProgress> | Array<IGuide> =
-        await fetchData({ url, token, initOptions: { method: 'GET' } })
+        await fetchData({ url: `${URL_BASE}${TOKEN_API}`, initOptions })
             .then((data: IAluraDashboard) => {
 
                 if (data.courseProgresses.length === 0) {

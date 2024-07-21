@@ -25,7 +25,7 @@ interface IGuide {
     author: string;
 }
 
-interface IAluraDashboard {
+interface IAluraDashboard  {
     courseProgresses: Array<ICourseProgress>;
     guides: Array<IGuide>;
 }

@@ -4,27 +4,31 @@ import { fetchData } from '../../services/fetch';
 import { responseData } from '../../services/commons';
 import { IArticle } from '../../interfaces/dev-to-api/articles';
 import { mapArticleSummary } from '../../services/helpers/mappers';
-import { ARTICLES_ENDPOINT, initOptions, URL_BASE_DEV_TO } from '../../services/dev-to/init-options';
+import devToService from '../../services/dev-to';
+import { IResponseFetch } from '../../interfaces/response';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     
     const { page, per_page } = req.query;
+    const { URL_BASE, endpoint, initOptions } = devToService();
 
     const pg: number = parseInt(page as string, 5) || 1;
     const pPg: number = parseInt(per_page as string, 5) || 5;
     const queries: string = `?page=${pg}&per_page=${pPg}`;
 
-    const url: string = `${URL_BASE_DEV_TO}${ARTICLES_ENDPOINT.PUBLISHED}${queries}`;
+    const url: string = `${URL_BASE}${endpoint.articles.PUBLISHED}${queries}`;
 
-    const result: Array<IArticle> = await fetchData({ url, initOptions }).then((articles: Array<IArticle>) => {
+    const result: Array<IArticle> = 
+                    await fetchData({ url, initOptions })
+                        .then((articles: Array<IArticle>) => {
 
-        if(articles.length === 0) {
-            responseData.errors.push('Nenhum artigo encontrado');
-            return [];
-        }
-        
-        return mapArticleSummary(articles);
-    });
+                            if(articles.length === 0) {
+                                responseData.errors.push('Nenhum artigo encontrado');
+                                return [];
+                            }
+                            
+                            return mapArticleSummary(articles);
+                    });
 
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Methods', 'GET');

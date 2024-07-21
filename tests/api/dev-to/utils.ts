@@ -1,5 +1,7 @@
 import { HttpResponseInit } from "msw";
-import { tokenDevTo } from "../../../services/dev-to/init-options";
+import devToService from "../../../services/dev-to";
+
+const { tokenDevTo } = devToService();
 
 const reponseInit: HttpResponseInit  = {
     status: 200,

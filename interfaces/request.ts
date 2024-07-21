@@ -5,6 +5,11 @@ interface IRequestData{
     initOptions?: RequestInit;
 };
 
+interface IStatusCodeMessage{
+    [code: number]: string;
+}
+
 export {
-    IRequestData
+    IRequestData,
+    IStatusCodeMessage
 }

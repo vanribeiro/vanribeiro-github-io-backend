@@ -1,6 +1,7 @@
 import { ICourseProgress, IGuide } from "../../interfaces/alura-api/dashboard";
 import { IArticle } from "../../interfaces/dev-to-api/articles";
 import dateConvert from "../../utils/date-convert";
+import { statusCodeMessage } from "../status-code";
 
 function mapArticle(articles: Array<IArticle>): Array<IArticle> {
     return articles?.map((article: IArticle) =>({
@@ -54,9 +55,16 @@ function mapCourseProgress(courseProgresses: Array<ICourseProgress>): Array<ICou
     );
 }
 
+function mapStatusCode(statusCode: number, statusMessage: string): string {
+    return statusCodeMessage[statusCode] 
+            ? statusCodeMessage[statusCode] 
+            : statusMessage;
+}
+
 export {
     mapArticle,
     mapArticleSummary,
     mapGuides,
-    mapCourseProgress
+    mapCourseProgress,
+    mapStatusCode
 };

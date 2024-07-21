@@ -6,11 +6,23 @@ type TypeOfPublishing =
                         "user_follower" | 
                         "comment";
 
-type ArticlesEndpoint = {
-    PUBLISHED: string;
+type DevToEndpoints = {
+    articles: {
+        PUBLISHED: string;
+        UNPUBLISHED: string;
+        ALL: string;
+    }
+}
+
+type DevToService = {
+    URL_BASE: string;
+    endpoint: DevToEndpoints;
+    initOptions: RequestInit;
+    tokenDevTo: string | undefined;
 }
 
 export {
     TypeOfPublishing,
-    ArticlesEndpoint,
+    DevToService,
+    DevToEndpoints
 }
