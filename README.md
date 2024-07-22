@@ -4,6 +4,7 @@
 1. [Motivação](#motivação)
 2. [Tecnologias](#tecnologias)
 3. [Uso](#uso)
+5. [Links úteis](#links-úteis)
 
 ## Motivação
 Atualmente, meu site está hospedado no Github Pages e o serviço oferecido por eles só permite hospedar páginas estáticas. Como eu queria manter a hospedagem ali, o repositório público e também queria consumir alguns serviços de terceiros, como a `API` do Instagram, por exemplo, tive que procurar outra alternativa, já que algumas `APIs` fornecem uma chave de acesso, que, para mim, tem o mesmo nível de senha e deve ser protegida.
@@ -18,6 +19,7 @@ Então, optei por fazer um upgrade do `NodeJS` e também migrar de `ExpressJS` p
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [Vercel](https://vercel.com/)
 - [Jest](https://jestjs.io/)
+- [Typedoc](https://typedoc.org/)
 
 ## Uso
 
@@ -31,6 +33,12 @@ Então, optei por fazer um upgrade do `NodeJS` e também migrar de `ExpressJS` p
 2. Então, execute `vercel dev`
 3. A aplicação ficará disponível em `http://localhost:3000`
 
+#### Home 
+
+Na Home, estará disponível uma documentação que foi gerada usando [Typedoc](https://typedoc.org/), através de `js comments`. Mas, também podem pode ser consultada através do link abaixo:
+
+- [vanribeiro-github-io-backend.vercel.app](https://vanribeiro-github-io-backend.vercel.app/)
+
 #### Testes
 
 Os comandos configurados são:
@@ -39,6 +47,6 @@ Os comandos configurados são:
 - `npm run test:coverage` - com coverage
 - `npm run test:watch` - sem coverage e com `--watchAll` habilitado
 
-## Posts que me ajudaram nesta implementação
+## Links úteis
 
 - [Como "esconder" a chave de uma API antes de colocar o projeto no GitHub?](https://pt.stackoverflow.com/questions/477756/como-esconder-a-chave-de-uma-api-antes-de-colocar-o-projeto-no-github)
