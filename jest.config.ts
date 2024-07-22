@@ -27,9 +27,11 @@ const config: Config = {
     '!**/node_modules/**',
     '!./coverage/**/*.{ts,js}',
     '!./jest.config.{ts,js}',
-    '!./tests/**/*.mock.json',
+    '!typedoc.json',
+    './docs/**/*.{ts,js}',
     '!./interfaces/**/*.ts',
     '!./types/**/*.ts',
+    '!./tests/**/*.mock.json',
     '!./tests/mocks/msw-server/*.ts',
   ],
 
