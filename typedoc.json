@@ -1,0 +1,10 @@
+{
+    "entryPoints": [
+        "./api/**/*.ts",
+        "./interfaces/**/*.ts",
+        "./services/**/*.ts",
+        "./types/**/*.ts",
+        "./utils/**/*.ts",
+    ],
+    "out": "docs"
+}
