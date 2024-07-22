@@ -33,11 +33,16 @@ Então, optei por fazer um upgrade do `NodeJS` e também migrar de `ExpressJS` p
 2. Então, execute `vercel dev`
 3. A aplicação ficará disponível em `http://localhost:3000`
 
-#### Home 
+#### Documentação
 
-Na Home, estará disponível uma documentação que foi gerada usando [Typedoc](https://typedoc.org/), através de `js comments`. Mas, também podem pode ser consultada através do link abaixo:
+Ao abrir http://localhost:3000, uma documentação, que foi gerada usando [Typedoc](https://typedoc.org/), através de `js comments` ficará disponível. 
 
-- [vanribeiro-github-io-backend.vercel.app](https://vanribeiro-github-io-backend.vercel.app/)
+Para facilitar as consultas aos enpoints, um Swagger está disponível em http://localhost:3000/swagger.
+
+Ambos podem ser consultados, também, nos links abaixo
+- Documentação: [vanribeiro-github-io-backend.vercel.app](https://vanribeiro-github-io-backend.vercel.app/)
+- Swagger: [vanribeiro-github-io-backend.vercel.app/swagger](https://vanribeiro-github-io-backend.vercel.app/swagger)
+
 
 #### Testes
 
