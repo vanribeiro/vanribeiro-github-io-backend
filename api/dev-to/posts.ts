@@ -6,6 +6,13 @@ import { IArticle } from '../../interfaces/dev-to-api/articles';
 import { mapArticle } from '../../services/helpers/mappers';
 import devToService from '../../services/dev-to';
 
+/**
+ * Handles the request to fetch published articles from the Dev.to API.
+ * 
+ * @param req - The request object containing the query parameters.
+ * @param res - The response object used to send the API response.
+ * @returns A Promise that resolves to the JSON response containing the fetched articles.
+ */
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     
     const { page, per_page } = req.query;

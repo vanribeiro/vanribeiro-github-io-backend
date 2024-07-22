@@ -1,6 +1,9 @@
 import { TypeOfPublishing } from "../../types/dev-to-api";
 import { IUser } from "./users";
 
+/**
+ * Represents an article retrieved from the Dev.to API.
+ */
 interface IArticle {
     type_of?: TypeOfPublishing;
     id?: number;

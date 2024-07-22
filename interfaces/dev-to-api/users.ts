@@ -1,3 +1,7 @@
+/**
+ * Represents a user.
+ * @interface IUser
+ */
 interface IUser {
     name: string;
     username: string;

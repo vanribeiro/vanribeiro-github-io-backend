@@ -1,5 +1,8 @@
 import { IStatusCodeMessage } from "../interfaces/request";
 
+/**
+ * Object that maps HTTP status codes to their corresponding messages.
+ */
 const statusCodeMessage: IStatusCodeMessage = {
     200: 'OK',
     400: 'Requisição Inválida',

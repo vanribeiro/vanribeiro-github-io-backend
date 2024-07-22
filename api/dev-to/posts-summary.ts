@@ -5,8 +5,14 @@ import { responseData } from '../../services/commons';
 import { IArticle } from '../../interfaces/dev-to-api/articles';
 import { mapArticleSummary } from '../../services/helpers/mappers';
 import devToService from '../../services/dev-to';
-import { IResponseFetch } from '../../interfaces/response';
 
+/**
+ * Handles the request to retrieve a summary of posts from the Dev.to API.
+ * 
+ * @param req - The request object containing the query parameters.
+ * @param res - The response object used to send the API response.
+ * @returns A JSON response containing the summary of posts.
+ */
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     
     const { page, per_page } = req.query;

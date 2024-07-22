@@ -9,6 +9,13 @@ import aluraDashboardService from '../../services/alura';
 
 dotenv.config();
 
+/**
+ * Handles the HTTP request and response for the dashboard endpoint.
+ * 
+ * @param req - The VercelRequest object representing the incoming HTTP request.
+ * @param res - The VercelResponse object representing the outgoing HTTP response.
+ * @returns A Promise that resolves to the JSON response.
+ */
 export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const { collection } = req.query;

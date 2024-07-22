@@ -1,5 +1,9 @@
 import { Kind } from "../../types/alura-dashboard";
 
+/**
+ * Represents the progress of a course.
+ * @interface ICourseProgress
+ */
 interface ICourseProgress {
     slug: string;
     finished: boolean;
@@ -10,6 +14,10 @@ interface ICourseProgress {
     readyToFinish: boolean;
 }
 
+/**
+ * Represents a guide in the Alura API.
+ * @interface IGuide
+ */
 interface IGuide {
     id: number;
     code: string;
@@ -25,6 +33,10 @@ interface IGuide {
     author: string;
 }
 
+/**
+ * Represents the Alura dashboard.
+ * @interface IAluraDashboard
+ */
 interface IAluraDashboard  {
     courseProgresses: Array<ICourseProgress>;
     guides: Array<IGuide>;
