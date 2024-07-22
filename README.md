@@ -20,6 +20,7 @@ Então, optei por fazer um upgrade do `NodeJS` e também migrar de `ExpressJS` p
 - [Vercel](https://vercel.com/)
 - [Jest](https://jestjs.io/)
 - [Typedoc](https://typedoc.org/)
+- [Swagger](https://swagger.io/)
 
 ## Uso
 
