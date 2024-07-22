@@ -1,5 +1,6 @@
 {
     "redirects": [
-        { "source": "/", "destination": "docs/index.html" }
+        { "source": "/", "destination": "docs/index.html" },
+        { "source": "/swagger", "destination": "swagger/index.html" }
     ]
   }

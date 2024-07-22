@@ -1,0 +1,267 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "vanribeiro.github.io back-end site's API endpoints",
+        "description": "vanribeiro.github.io back-end site endpoints",
+        "contact": {
+            "name": "Van Ribeiro",
+            "url": "https://vanribeiro.github.io/",
+            "email": "vanribeiro.dev@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "2.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api"
+        }
+    ],
+    "tags": [
+        {
+            "name": "alura",
+            "description": "API endponint to interact with my dashboard data in Alura platform"
+        },
+        {
+            "name": "dev.to",
+            "description": "API endpoints to interact with my post on dev.to"
+        }
+    ],
+    "paths": {
+        "/alura/dashboard": {
+            "get": {
+                "tags": [
+                    "alura"
+                ],
+                "summary": "Returns the dashboard data",
+                "produces": [
+                    "application/json"
+                ],
+                "description": "Returns the dashboard data",
+                "parameters": [
+                    {
+                        "name": "collection",
+                        "in": "query",
+                        "description": "Collection of data available in the dashboard",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "progresso",
+                                "guias"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AluraDashboard"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    }
+                }
+            }
+        },
+        "/dev-to/posts": {
+            "get": {
+                "tags": [
+                    "dev.to"
+                ],
+                "summary": "Returns the list of my dev.to posts",
+                "produces": [
+                    "application/json"
+                ],
+                "description": "Returns the list of my dev.to posts, inclunding body_markdown property which has the markdown article content.",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DevTo"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    }
+                }
+            }
+        },
+        "/dev-to/posts-summary": {
+            "get": {
+                "tags": [
+                    "dev.to"
+                ],
+                "summary": "Returns the list of my dev.to posts in a summary format",
+                "produces": [
+                    "application/json"
+                ],
+                "description": "Returns the list of my dev.to posts in a summary format and main post information.",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DevToSummary"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Não autorizado"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AluraDashboard": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "integer",
+                        "example": {
+                            "status": 200
+                        }
+                    },
+                    "data": {
+                        "type": "object",
+                        "example": {
+                            "courseProgresses": [
+                                {
+                                    "id": 2983,
+                                    "name": "React: avançando em testes e2e com Cypress",
+                                    "slug": "react-avancando-testes-e2e-cypress",
+                                    "progress": 5,
+                                    "readyToFinish": false,
+                                    "finished": false,
+                                    "lastAccessTime": "17/07/2024"
+                                }
+                            ],
+                            "guides": [
+                                {
+                                    "id": 1,
+                                    "code": "XYZ",
+                                    "name": "Guia de estudos",
+                                    "url": "https://www.alura.com.br/guia-de-estudos/XYZ",
+                                    "lastAccessTime": "22/07/2024",
+                                    "kind": "STUDY_PLAN",
+                                    "totalCourses": 5,
+                                    "finishedCourses": 1,
+                                    "totalSteps": 1,
+                                    "finishedSteps": 1,
+                                    "color": "#FF0000",
+                                    "author": {
+                                        "id": 1,
+                                        "name": "Van Ribeiro",
+                                        "url": "https://vanribeiro.github.io/"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "errors": {
+                        "type": "object"
+                    }
+                }
+            },
+            "DevTo": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "integer",
+                        "example": {
+                            "status": 200
+                        }
+                    },
+                    "data": {
+                        "type": "array",
+                        "example": [
+                            {
+                                "title": "Formatando números e moedas com toLocaleString()",
+                                "url": "https://dev.to/vanribeiro/formatando-numeros-e-moedas-com-tolocalestring-2j97",
+                                "description": "O método Number.prototype.toLocaleString() permite formatar um número de acordo com a nacionalidade desejada.",
+                                "comments_count": 0,
+                                "published_at": "21/03/2022",
+                                "published": true,
+                                "positive_reactions_count": 20,
+                                "public_reactions_count": 20,
+                                "reading_time_minutes": 6,
+                                "cover_image": "https://res.cloudinary.com/practicaldev/image/fetch/s--hc9s7XSu--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://i.imgur.com/tWjiOSp.png",
+                                "body_markdown": "---\ntitle: Formatando números e moedas com toLocaleString()\npublished: true\ndescription: O método Number.prototype.toLocaleString() permite formatar um número de acordo com a nacionalidade desejada.\ntags: javascript, toLocaleString, html, web, \ncover_image: https://i.imgur.com/tWjiOSp.png\n---\n\nO método [`Number.prototype.toLocaleString()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) permite formatar um número de acordo com a nacionalidade desejada. A partir de uma entrada do tipo `number`, ele devolve uma `string` com a formatação padrão ou a que foi definida através das opções disponíveis.\n\nConteúdo:\n\n1. [Números](#números)\n    1. [Estilo `decimal`](#estilo-decimal)\n        1. [Separadores de milhar](#separadores-de-milhar)\n            1. [Desabilitando separadores de milhar](#desabilitando-separadores-de-milhar)\n...",
+                                "tag_list": [
+                                    "javascript",
+                                    "tolocalestring",
+                                    "html",
+                                    "web"
+                                ],
+                                "user": {
+                                    "name": "Van Ribeiro",
+                                    "username": "vanribeiro"
+                                }
+                            }
+                        ]
+                    },
+                    "errors": {
+                        "type": "object"
+                    }
+                }
+            },
+            "DevToSummary": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "integer",
+                        "example": {
+                            "status": 200
+                        }
+                    },
+                    "data": {
+                        "type": "array",
+                        "example": [
+                            {
+                                "title": "Formatando números e moedas com toLocaleString()",
+                                "url": "https://dev.to/vanribeiro/formatando-numeros-e-moedas-com-tolocalestring-2j97",
+                                "description": "O método Number.prototype.toLocaleString() permite formatar um número de acordo com a nacionalidade desejada.",
+                                "comments_count": 0,
+                                "published_at": "21/03/2022",
+                                "published": true,
+                                "positive_reactions_count": 20,
+                                "public_reactions_count": 20,
+                                "reading_time_minutes": 6,
+                                "cover_image": "https://res.cloudinary.com/practicaldev/image/fetch/s--hc9s7XSu--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://i.imgur.com/tWjiOSp.png",
+                                "tag_list": [
+                                    "javascript",
+                                    "tolocalestring",
+                                    "html",
+                                    "web"
+                                ],
+                                "user": {
+                                    "name": "Van Ribeiro",
+                                    "username": "vanribeiro"
+                                }
+                            }
+                        ]
+                    },
+                    "errors": {
+                        "type": "object"
+                    }
+                }
+            }
+        }
+    }
+}
