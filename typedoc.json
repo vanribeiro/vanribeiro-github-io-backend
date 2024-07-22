@@ -1,0 +1,14 @@
+{
+    "plugin": [
+        "typedoc-material-theme"
+    ],
+    "themeColor": "#eca769",
+    "entryPoints": [
+        "./api/**/*.ts",
+        "./interfaces/**/*.ts",
+        "./services/**/*.ts",
+        "./types/**/*.ts",
+        "./utils/**/*.ts",
+    ],
+    "out": "docs"
+}

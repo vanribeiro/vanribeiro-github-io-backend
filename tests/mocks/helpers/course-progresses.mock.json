@@ -1,0 +1,13 @@
+{
+    "courseProgresses": [
+        {
+            "id": 123,
+            "name": "Test Course",
+            "slug": "test-course",
+            "progress": 50,
+            "readyToFinish": true,
+            "finished": false,
+            "lastAccessTime": "2022-01-01T00:00:00Z"
+        }
+    ]
+}

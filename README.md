@@ -3,24 +3,50 @@
 ## Conteúdo
 1. [Motivação](#motivação)
 2. [Tecnologias](#tecnologias)
+3. [Uso](#uso)
+5. [Links úteis](#links-úteis)
 
 ## Motivação
-Atualmente, meu site está hospedado no Github Pages e o serviço oferecido por eles só permite hospedar páginas estáticas. Como eu queria manter a hospedagem ali, o repositório público e também queria consumir alguns serviços de terceiros, como a `API` do Instagram, por exemplo, tive procurar outra alternativa, já que algumas `APIs` fornecem uma chave de acesso, que, para mim, tem o mesmo nível de senha e deve ser protegida.
+Atualmente, meu site está hospedado no Github Pages e o serviço oferecido por eles só permite hospedar páginas estáticas. Como eu queria manter a hospedagem ali, o repositório público e também queria consumir alguns serviços de terceiros, como a `API` do Instagram, por exemplo, tive que procurar outra alternativa, já que algumas `APIs` fornecem uma chave de acesso, que, para mim, tem o mesmo nível de senha e deve ser protegida.
 
-Após algumas pesquisas, uma das soluções que encontrei neste post, foi consumir as `APIs` no Back-End e devolver os dados através de um endpoint que pode ser consumido no Front-End. E foi o que fiz.
+Na primeira versão, usei `NodeJS` com `ExpressJS` para criar uma `API`, que fazia as consulta usando as chaves de `API`, mas começou a apresentar alguns problemas de compatibilidade com o serviço da Vercel, especialmente com a versão do `NodeJS` que eu estava utilizando. 
 
-Então, lá fui relembrar como usar `NodeJS` com `ExpressJS` para criar uma `API`. O código ainda precisa de ajustes e melhorias, mas funciona e fornece o que eu preciso para ser ter os dados consumidos via Front-End.
+Então, optei por fazer um upgrade do `NodeJS` e também migrar de `ExpressJS` para `Serveless Function` da Vercel.
 
 ## Tecnologias 
 
 - [NodeJS](https://nodejs.org/en/)
-- [ExpressJS](https://expressjs.com/pt-br/)
 - [dotenv](https://www.npmjs.com/package/dotenv)
-- [NodeFetch](https://www.npmjs.com/package/node-fetch)
 - [Vercel](https://vercel.com/)
+- [Jest](https://jestjs.io/)
+- [Typedoc](https://typedoc.org/)
 
-## Posts que me ajudaram nesta implementação
+## Uso
+
+### `localhost`
+
+1. Instale todas as dependências: `npm install`
+
+#### Executando a aplicação
+
+1. Se ainda não tiver instalado, instale o pacote da `Vercel`: `npm i -g vercel`
+2. Então, execute `vercel dev`
+3. A aplicação ficará disponível em `http://localhost:3000`
+
+#### Home 
+
+Na Home, estará disponível uma documentação que foi gerada usando [Typedoc](https://typedoc.org/), através de `js comments`. Mas, também podem pode ser consultada através do link abaixo:
+
+- [vanribeiro-github-io-backend.vercel.app](https://vanribeiro-github-io-backend.vercel.app/)
+
+#### Testes
+
+Os comandos configurados são:
+
+- `npm run test` - sem coverage
+- `npm run test:coverage` - com coverage
+- `npm run test:watch` - sem coverage e com `--watchAll` habilitado
+
+## Links úteis
 
 - [Como "esconder" a chave de uma API antes de colocar o projeto no GitHub?](https://pt.stackoverflow.com/questions/477756/como-esconder-a-chave-de-uma-api-antes-de-colocar-o-projeto-no-github)
-- [Deploy Express.js app to Vercel ](https://dev.to/hte305/deploy-express-js-app-to-vercel-38jb)
-- [Using Express.js with Vercel - Learn how to use Express.js in a Serverless environment.](https://vercel.com/guides/using-express-with-vercel)

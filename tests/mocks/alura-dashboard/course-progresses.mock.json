@@ -1,0 +1,13 @@
+{
+    "courseProgresses": [
+        {
+            "id": 2983,
+            "name": "React: avançando em testes e2e com Cypress",
+            "slug": "react-avancando-testes-e2e-cypress",
+            "progress": 5,
+            "readyToFinish": false,
+            "finished": false,
+            "lastAccessTime": "17/07/2024"
+        }
+    ]
+}
