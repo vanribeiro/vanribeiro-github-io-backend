@@ -28,6 +28,7 @@ const config: Config = {
     '!./coverage/**/*.{ts,js}',
     '!./jest.config.{ts,js}',
     '!typedoc.json',
+    '!vercel.json',
     './docs/**/*.{ts,js}',
     '!./interfaces/**/*.ts',
     '!./types/**/*.ts',
