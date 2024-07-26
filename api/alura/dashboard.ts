@@ -54,17 +54,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 };
             });
 
-    const origins: Readonly<Array<string>>  = [
-        'https://vanribeiro.github.io',
-        'http://localhost:3000',
-        'http://localhost:5000',
-        'http://localhost:5500',
-        'http://localhost:5501',
-    ]; 
-
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     res.setHeader('Access-Control-Allow-Methods', 'GET');
-    res.setHeader('Access-Control-Allow-Origin', origins);
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Content-Type', 'application/json');
 
     responseData.data = result;
