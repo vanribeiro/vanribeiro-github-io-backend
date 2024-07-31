@@ -1,7 +1,17 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
 
+/**
+ * Represents a handler function for Vercel serverless functions.
+ * It takes in a request object of type `VercelRequest` and a response object of type `VercelResponse`,
+ * and returns a promise that resolves to a `VercelResponse`.
+ */
 type VercelHandler = (req: VercelRequest, res: VercelResponse) => Promise<VercelResponse>;
 
+/**
+ * Middleware function to allow Cross-Origin Resource Sharing (CORS) for a Vercel handler.
+ * @param handler - The Vercel handler function.
+ * @returns A new Vercel handler function with CORS headers set.
+ */
 function allowCors(handler: VercelHandler): VercelHandler {
     return async (req: VercelRequest, res: VercelResponse) => {
     
