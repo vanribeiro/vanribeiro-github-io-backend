@@ -6,6 +6,7 @@ import { IAluraDashboard, ICourseProgress, IGuide } from '../../interfaces/alura
 import { responseData } from '../../services/commons';
 import { mapCourseProgress, mapGuides } from '../../services/helpers/mappers';
 import aluraDashboardService from '../../services/alura';
+import allowCors from '../../services/helpers/allow-cors';
 
 dotenv.config();
 
@@ -16,7 +17,7 @@ dotenv.config();
  * @param res - The VercelResponse object representing the outgoing HTTP response.
  * @returns A Promise that resolves to the JSON response.
  */
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+async function handler(req: VercelRequest, res: VercelResponse) {
 
     const { collection } = req.query;
     const { URL_BASE, TOKEN_API, initOptions } = aluraDashboardService();
@@ -53,14 +54,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     guides: guideList
                 };
             });
-
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    res.setHeader('Access-Control-Allow-Methods', 'GET');
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Content-Type', 'application/json');
-
+    
     responseData.data = result;
     res.statusCode = responseData.status;
 
     return res.json(responseData);
 }
+
+export default allowCors(handler);
