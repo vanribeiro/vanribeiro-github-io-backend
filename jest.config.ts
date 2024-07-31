@@ -29,7 +29,7 @@ const config: Config = {
     '!./jest.config.{ts,js}',
     '!typedoc.json',
     '!vercel.json',
-    './docs/**/*.{ts,js}',
+    '!./docs/**/*.{ts,js}',
     '!./interfaces/**/*.ts',
     '!./types/**/*.ts',
     '!./tests/**/*.mock.json',
