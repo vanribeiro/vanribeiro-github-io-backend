@@ -175,7 +175,7 @@
                         }
                     },
                     "errors": {
-                        "type": "object"
+                        "example": []
                     }
                 }
             },
@@ -217,7 +217,7 @@
                         ]
                     },
                     "errors": {
-                        "type": "object"
+                        "example": []
                     }
                 }
             },
@@ -258,7 +258,7 @@
                         ]
                     },
                     "errors": {
-                        "type": "object"
+                        "example": []
                     }
                 }
             }
